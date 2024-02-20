@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require ('express');
 const mongoose = require ('mongoose');
 const bodyParser = require ('body-parser');
@@ -6,15 +7,17 @@ const cors = require ('cors');
 const app = express ();
 
 const PORT = process.env.PORT || 3000;
-const DB_NAME = process.env.DB_NAME
+const DBNAME = process.env.DBNAME
 const DB_URL = process.env.DB_URL
 
-const EXPRESS_API = express()
-mongoose.connect(DB_URL + DB_NAME)
-const DB = mongoose.connection
+mongoose.connect(DB_URL + DBNAME)
+const DB = mongoose.connection;
+DB.once("open",()=>{
+    console.log("Connected to the DB", DBNAME);
+})
 
-
-app.use(express.json());
+app.use (express.json());
+app.use(cors());
 
 
 app.get ('/test', (req,res) => {
