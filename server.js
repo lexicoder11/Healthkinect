@@ -20,10 +20,13 @@ DB.once("open",()=>{
 app.use (express.json());
 app.use(cors());
 
-
+// test 
 app.get ('/test', (req,res) => {
     res.send('Server is up and running');
 });
+
+
+
 
 app.listen(PORT, ()=> {
     console.log("Server is running on port", PORT);
