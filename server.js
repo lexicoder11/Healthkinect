@@ -3,8 +3,9 @@ const express = require ('express');
 const mongoose = require ('mongoose');
 const bodyParser = require ('body-parser');
 const cors = require ('cors');
+const stripe = require('stripe')(process.env.STRIPE_PAYMENTS)
+const app = express();
 
-const app = express ();
 
 const PORT = process.env.PORT || 3000;
 const DBNAME = process.env.DBNAME

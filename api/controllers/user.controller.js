@@ -35,17 +35,15 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    const { name, email, password, role, phone, companyName, jobTitle, bio, topic } = req.body
+    const { name, email, password, dob, gender ,phone } = req.body
     const user = new User({
       name,
       email,
       password: bcrypt.hashSync(password, 10),
-      companyName,
-      jobTitle,
+      dob,
+      gender,
       phone,
-      bio,
-      topic,
-      role,
+      address,
     })
 
     const newUser = await user.save()
@@ -57,6 +55,18 @@ router.post('/signup', async (req, res) => {
     res.json({ message: 'signup success', user: newUser, token })
   } catch (error) {
     res.status(500).json({ message: error.message })
+  }
+})
+
+// Route: user logout
+// METHOD: POST
+// Description: invalidate the JWT token
+
+router.post('/logout', async (req,res)=>{
+  try {
+    res.json({ message: 'Logout Successful'})
+  } catch (error) {
+    res.status(500).json({ message: error.message})
   }
 })
 
