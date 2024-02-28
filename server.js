@@ -6,6 +6,8 @@ const cors = require ('cors');
 const stripe = require('stripe')(process.env.STRIPE_PAYMENTS)
 const app = express();
 
+const paymentController = require ('./server/controllers/payment.controller')
+const userController = require ('./server/controllers/user.controller')
 
 const PORT = process.env.PORT || 3000;
 const DBNAME = process.env.DBNAME
@@ -25,6 +27,9 @@ app.get ('/test', (req,res) => {
     res.send('Server is up and running');
 });
 
+// routes
+app.use('/payments', paymentController)
+app.use('/user', userController)
 
 
 

@@ -3,17 +3,17 @@
 const Payment = require('../models/payment.model');
 
 // GET payments
-exports.getPayments = async (req, res) => {
+router.get ('/payments', async (req, res) => {
   try {
     const payments = await Payment.find({ patientId: req.patientId });
     res.json(payments);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
+});
 
 // POST make payments
-exports.makePayment = async (req, res) => {
+router.post ('/makepayments', async (req, res) => {
   try {
     const { amount } = req.body;
     const newPayment = new Payment({
@@ -27,6 +27,6 @@ exports.makePayment = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
+});
 
 module.exports = { getPayments, makePayment };
