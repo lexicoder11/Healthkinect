@@ -1,5 +1,5 @@
 
-
+const express = require('express');
 const Payment = require('../models/payment.model');
 
 // GET payments
