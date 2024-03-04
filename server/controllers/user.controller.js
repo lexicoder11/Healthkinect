@@ -35,15 +35,17 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    const { name, email, password, dob, gender ,phone, address } = req.body
+    const { name, email, password, role, dob, gender , phone, address } = req.body
     const user = new User({
       name,
       email,
       password: bcrypt.hashSync(password, 10),
+      role,
       dob,
       gender,
       phone,
       address,
+
     })
 
     const newUser = await user.save()
