@@ -1,17 +1,18 @@
 require("dotenv").config();
+
 const express = require ('express');
 const mongoose = require ('mongoose');
 const bodyParser = require ('body-parser');
 const cors = require ('cors');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-const app = express();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+const app = express();
 const paymentController = require ('./server/controllers/payment.controller')
 const userController = require ('./server/controllers/user.controller')
 
 const PORT = process.env.PORT || 3000;
-const DBNAME = process.env.DBNAME
-const DB_URL = process.env.DB_URL
+const DBNAME = process.env.DBNAME;
+const DB_URL = process.env.DB_URL;
 
 mongoose.connect(DB_URL + DBNAME)
 const DB = mongoose.connection;

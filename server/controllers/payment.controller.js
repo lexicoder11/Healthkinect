@@ -1,8 +1,9 @@
-
 const express = require('express');
+const router = express.Router();
 const Payment = require('../models/payment.model');
 
-// GET payments
+// Method: GET
+// Description: View all payments by patient
 router.get ('/payments', async (req, res) => {
   try {
     const payments = await Payment.find({ patientId: req.patientId });
@@ -12,7 +13,8 @@ router.get ('/payments', async (req, res) => {
   }
 });
 
-// POST make payments
+// POST 
+// Description: patient making a payment
 router.post ('/makepayments', async (req, res) => {
   try {
     const { amount } = req.body;
@@ -29,4 +31,4 @@ router.post ('/makepayments', async (req, res) => {
   }
 });
 
-module.exports = { getPayments, makePayment };
+module.exports = router
