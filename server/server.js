@@ -7,8 +7,8 @@ const cors = require ('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-const paymentController = require ('./server/controllers/payment.controller')
-const userController = require ('./server/controllers/user.controller')
+const paymentController = require ('./controllers/payment.controller')
+const userController = require ('./controllers/user.controller')
 
 const PORT = process.env.PORT || 3000;
 const DBNAME = process.env.DBNAME;
