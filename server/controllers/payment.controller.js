@@ -4,7 +4,7 @@ const Payment = require('../models/payment.model');
 
 // Method: GET
 // Description: View all payments by patient
-router.get ('/payments', async (req, res) => {
+router.get ('/allpayments', async (req, res) => {
   try {
     const payments = await Payment.find({ patientId: req.patientId });
     res.json(payments);

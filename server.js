@@ -31,7 +31,7 @@ app.get ('/test', (req,res) => {
 // routes
 app.use('/payments', paymentController)
 app.use('/user', userController)
-
+app.use('stripe', stripe)
 
 
 app.listen(PORT, ()=> {
