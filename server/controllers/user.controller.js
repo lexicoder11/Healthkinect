@@ -45,7 +45,6 @@ router.post('/signup', async (req, res) => {
       gender,
       phone,
       address,
-
     })
 
     const newUser = await user.save()

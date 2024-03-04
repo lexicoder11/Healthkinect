@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     type: String, enum: ['admin', 'doctor', 'patient'], default: 'patient' 
 },
 dob: { 
-  type: Number, 
+  type: String, 
   required: true, 
 },
 gender: { 
