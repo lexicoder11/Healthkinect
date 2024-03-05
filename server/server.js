@@ -10,7 +10,7 @@ const app = express();
 const paymentController = require ('./controllers/payment.controller')
 const userController = require ('./controllers/user.controller')
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 const DBNAME = process.env.DBNAME;
 const DB_URL = process.env.DB_URL;
 
