@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server" : "npm start  --prefix backend",
-    "client" : "npm start --prefix frontend",
+    "server": "npm start  --prefix server",
+    "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
@@ -30,6 +30,6 @@
     "stripe": "^14.17.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.1.0"
   }
 }
